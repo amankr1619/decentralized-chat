@@ -1,4 +1,6 @@
 import User from "../schema/user";
+const aleph = require("aleph-js")
+import passport from "passport";
 
 const register = async (req, res) => {
   await User.register(

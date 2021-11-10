@@ -1,3 +1,5 @@
+const aleph = require("aleph-js");
+
 export const getRoom = async (req, res) => {
   const room = req.params.room;
   const api_server = "https://api2.aleph.im";

@@ -1,3 +1,5 @@
+const aleph = require("aleph-js");
+
 export const postMessages = (req, res) => {
   const message = req.body.message;
   aleph.ethereum

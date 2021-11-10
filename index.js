@@ -20,8 +20,10 @@ const expressSession = require("express-session")({
   saveUninitialized: false,
   cookie: { secure: false },
 });
+
 const app = express();
-const port = 3456;
+const port = 3457;
+
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
@@ -41,6 +43,7 @@ mongoose.connect("mongodb://localhost/chat", {
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 
 // User.create({
 //   username: 'James',
