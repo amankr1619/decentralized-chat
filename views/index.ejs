@@ -23,6 +23,7 @@
             <br>
             <strong><%= user.username %></strong>
             <br>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target><a href="/channels">Channels</a></button>
           </div>
         </div>
         <hr>
@@ -34,9 +35,6 @@
           <div class="card-body">
             <span class='name'><%=  parsed_item.content.name || parsed_item.content.body  %></span>
             <br>
-            <span class='member-count'>
-              <small>33 Members</small>
-            </span>
           </div>
         </div>
       </a>
