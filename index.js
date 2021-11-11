@@ -19,7 +19,7 @@ const expressSession = require("express-session")({
   cookie: { secure: false },
 });
 
-const mongoURI = 'mongodb+srv://m001-student:<password>@sandbox.xljfd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongoURI = 'mongodb+srv://m001-student:chatpass@sandbox.xljfd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 const app = express();
 const port = 8000;
@@ -36,7 +36,7 @@ app.use(passport.session());
 
 app.set("view engine", "ejs");
 
-mongoose.connect("mongodb://localhost/chat", {
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
