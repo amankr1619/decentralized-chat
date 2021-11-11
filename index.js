@@ -1,12 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
-import bodyParser from "body-parser";
 import cors from "cors";
 import passport from "passport";
 import connectEnsureLogin from "connect-ensure-login";
 import User from "./schema/user";
 import register from "./models/register";
-import findOneUser from "./models/findOneUser";
 import { home } from "./controllers/index";
 import { channel } from "./controllers/channels";
 import { joinChannel } from "./controllers/joinChannel";
@@ -22,12 +20,13 @@ const expressSession = require("express-session")({
 });
 
 const app = express();
-const port = 3457;
+const port = 8000;
 
 
 app.use(express.static(__dirname));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use(cors());
 app.use(expressSession);
 app.use(passport.initialize());
@@ -44,18 +43,10 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
-// User.create({
-//   username: 'James',
-//   password: 'password',
-// });
-
-// User.register({ username: 'Jackson', active: false}, 'password')
-
 app.get("/", connectEnsureLogin.ensureLoggedIn(), home);
 
 app.get("/channels/new", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("channels/new");
+  res.sendFile("views/channels/new.html", { root: __dirname });
 });
 
 app.get("/channels", connectEnsureLogin.ensureLoggedIn(), channel);
@@ -71,7 +62,7 @@ app.post("/channels", connectEnsureLogin.ensureLoggedIn(), postChannels);
 app.get("/rooms/:room", connectEnsureLogin.ensureLoggedIn(), getRoom);
 
 app.get("/login", (req, res) => {
-  res.sendFile("views/login.html", { root: __dirname });
+  res.sendFile("views/auth/login.html", { root: __dirname });
 });
 
 app.post(
@@ -83,20 +74,17 @@ app.post(
 );
 
 app.get("/register", (req, res) => {
-  res.sendFile("views/register.html", { root: __dirname });
+  res.sendFile("views/auth/register.html", { root: __dirname });
 });
 
 app.post("/register", async (req, res) => {
   await register(req, res);
 });
 
-app.get(
-  "/users/:username",
-  connectEnsureLogin.ensureLoggedIn(),
-  async (req, res) => {
-    await findOneUser(req, res);
-  }
-);
+app.get("/logout",(req,res)=>{
+  req.logout();
+  res.redirect("/login");
+});
 
 app.post("/messages/:room", connectEnsureLogin.ensureLoggedIn(), postMessages);
 

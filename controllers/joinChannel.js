@@ -1,10 +1,7 @@
 const aleph = require("aleph-js");
 
 export const joinChannel = (req, res) => {
-  const room = req.params.room;
   const api_server = "https://api2.aleph.im";
-  const network_id = 261;
-  const channel = "TEST";
 
   aleph.ethereum
     .import_account({ mnemonics: req.user.mnemonics })

@@ -12,8 +12,6 @@ const register = async (req, res) => {
         res.redirect("/register");
       } else {
         aleph.ethereum.new_account().then((account) => {
-          user.private_key = account.private_key;
-          user.public_key = account.public_key;
           user.mnemonics = account.mnemonics;
           user.address = account.address;
           user.save();

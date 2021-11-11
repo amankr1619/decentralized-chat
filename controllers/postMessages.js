@@ -6,9 +6,7 @@ export const postMessages = (req, res) => {
     .import_account({ mnemonics: req.user.mnemonics })
     .then((account) => {
       const room = req.params.room;
-      console.log(room);
       const api_server = "https://api2.aleph.im";
-      const network_id = 261;
       const channel = "TEST";
       aleph.posts
         .submit(
@@ -23,7 +21,7 @@ export const postMessages = (req, res) => {
           }
         )
         .catch((err) => {
-          console.log(err);
+          res.send(err);
         });
     });
 };

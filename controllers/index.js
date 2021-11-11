@@ -20,7 +20,6 @@ export const home = async (req, res) => {
     api_server: api_server,
   });
 
-  console.log(channel_posts);
   res.render("index", {
     channels: channel_posts.posts,
     user: req.user,

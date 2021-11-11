@@ -12,10 +12,11 @@
 
   <body class="container">
     <div id="app">
-      
+      <h1>Hello {{name}}</h1>
+      <button id="metamask" type="button" class="" v-on:click="connectMetamask()">Connect Metamask</button>
     </div>
-
+    
     <script src="https://unpkg.com/vue@3.2.20"></script>
-    <script src="./app.js"></script>
+    <script src="/views/chat/app.js"></script>
   </body>
 </html>

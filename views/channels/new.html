@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/views/channels/style.css" type="text/css">
+  <title>Chat app</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <form action="/channels" method="POST" class='form'>
+    <div class='control'>
+      <h1>
+        Create a channel
+      </h1>
+    </div>
+    <div class='control block-cube block-input'>
+      <input name='name' placeholder='Enter Room Name' type='text'>
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+    </div>
+    <div class='rad'>
+      <div class='control block-cube block-input radio'> 
+        <input label="Public" type="radio" class="radio" name="type" value="public" checked>
+        <input label="Private" type="radio" class="radio" name="type" value="private">
+        <div class='bg-top'>
+          <div class='bg-inner'></div>
+        </div>
+        <div class='bg-right'>
+          <div class='bg-inner'></div>
+        </div>
+        <div class='bg'>
+          <div class='bg-inner'></div>
+        </div>
+      </div>
+    </div>
+    <button class='btn block-cube block-cube-hover' type='submit' value="Create Channel">
+      <div class='bg-top'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg-right'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='bg'>
+        <div class='bg-inner'></div>
+      </div>
+      <div class='text'>
+        Create Room
+      </div>
+    </button>
+  </form>
+</body>
+</html>
+
