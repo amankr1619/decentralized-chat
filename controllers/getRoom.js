@@ -24,7 +24,7 @@ export const getRoom = async (req, res) => {
     refs: [room],
     api_server: api_server,
   });
-  
+
   res.render("index", {
     channels: channel_posts.posts,
     posts: result.posts,

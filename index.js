@@ -19,6 +19,8 @@ const expressSession = require("express-session")({
   cookie: { secure: false },
 });
 
+const mongoURI = 'mongodb+srv://m001-student:<password>@sandbox.xljfd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
 const app = express();
 const port = 8000;
 
