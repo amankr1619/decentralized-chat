@@ -1,4 +1,5 @@
 # decentralized-chat
+A decentralized chat application built on top of Aleph.im and built with MVC architecture.
 
 ## Installation and requirements
 - Make sure you have NPM, Node or Yarn, mongod installed in your system.
